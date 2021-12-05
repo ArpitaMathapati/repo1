@@ -1,0 +1,91 @@
+# Test 5: write a python programe to automatically generate utterances. It will take a list of entities and a list of utteraces as its input.
+# its output will be a list of uniq utterance with all the possible meaningful values of entities.
+
+entities_list = [ent for ent in input("Please enter entities with comma: ").split(',')]
+print(entities_list)
+
+utterance_list = [utt for utt in input("Please enter utterance list with comma: ").split(',')]
+print(utterance_list)
+
+substring = "<>"
+
+new_list = []
+s1 = entities_list[0]
+s2 = entities_list[1]
+for u in utterance_list:
+    count = u.count(substring)
+    for i in range(len(entities_list)):
+        if count >= 2:
+            u1 = u.replace(substring, s1, 1)
+            u2 = u1.replace(substring, s2, 1)
+            temp = s1
+            s1 = s2
+            s2 = temp
+        else:
+            u2 = u.replace(substring, entities_list[i])
+        new_list.append(u2)
+        
+print("Updated list")
+print(new_list)
+
+
+#Test: 6 Write a Python program to convert a list of dictonaries which may contain duplicate dictionaries into a list containing unique dictionaries.
+
+dict_list = [{'name': 'affirm', 'confidence': 0.9448149204254}, {'name': 'affirm', 'confidence': 0.944814920425415},
+             {'name': 'inform', 'confidence': 0.9842240810394287}, {'name': 'inform', 'confidence': 0.9842240810394287}]
+             
+ x = [i for n, i in enumerate(dict_list) if i not in dict_list[n+1:]]
+ print(x)
+ 
+ 
+ 
+ # Test: 7 Python programe to check validation of password
+ 
+ import re
+ password = input("Please enter password: ")
+ flag = 0
+ 
+ while True:
+     if(len(password) <= 6 and len(password) <= 16):
+         flag = -1
+         break
+     elif not re.search("[a-z]", password):
+         flag = -1
+         break
+     elif not re.search("[A-Z]", password):
+         flag = -1
+         break
+     elif not re.search("[0-9]", password):
+         flag = -1
+         break
+     elif not re.search("[!\"#$%'()*+,-./:;<=>?@\[\\]^_`{|}~]")
+         flag = -1
+         break
+     else:
+         flag = 0
+         print("Valid Passowrd")
+         break
+         
+if flag == -1:
+    print("Not a Vallid Password")
+    
+    
+    
+# Test : 8 Write a python progrm to cobine two dictionary adding values for common keys.
+
+dict1 = {'a': 100, 'b': 200, 'c': 300}
+dict2 = {'a': 300, 'b': 200, 'd': 400}
+
+# adding the values with common key.
+
+for key in dict2:
+    if key in dict1:
+        dict2[key] = dict2[key] + dict1[key]
+    else:
+        pass
+        
+for key in dict1:
+    if key not in dict2:
+        dict2[key] = dict1[key]
+        
+ print(dict2)
