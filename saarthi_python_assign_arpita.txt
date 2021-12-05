@@ -90,6 +90,9 @@ if flag == -1:
     
     
 # Test : 8 Write a python progrm to cobine two dictionary adding values for common keys.
+# output:
+#       {'a': 400, 'b': 400, 'd': 400, 'c': 300}
+
 
 dict1 = {'a': 100, 'b': 200, 'c': 300}
 dict2 = {'a': 300, 'b': 200, 'd': 400}
@@ -106,4 +109,4 @@ for key in dict1:
     if key not in dict2:
         dict2[key] = dict1[key]
         
- print(dict2)
+print(dict2)
