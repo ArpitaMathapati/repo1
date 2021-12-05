@@ -1,5 +1,12 @@
 # Test 5: write a python programe to automatically generate utterances. It will take a list of entities and a list of utteraces as its input.
 # its output will be a list of uniq utterance with all the possible meaningful values of entities.
+# Output:
+#            Please enter entities with comma: kolkata,delhi
+#            ['kolkata', 'delhi']
+#            Please enter utterance list with comma: How far is <> from <>,How is the weather in <>
+#            ['How far is <> from <>', 'How is the weather in <>']
+#            Updated list
+#            ['How far is kolkata from delhi', 'How far is delhi from kolkata', 'How is the weather in kolkata', 'How is the weather in delhi']
 
 entities_list = [ent for ent in input("Please enter entities with comma: ").split(',')]
 print(entities_list)
